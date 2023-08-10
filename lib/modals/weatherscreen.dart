@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:weather/constant.dart';
 import 'package:weather/modals/weathermodals.dart';
+import 'package:weather/mywidget/mywidget/myimage.dart';
 import 'package:weather/search.dart';
 import 'package:weather/service.dart';
 
@@ -13,12 +14,13 @@ class weatherscreen extends StatefulWidget {
 
 class _weatherscreenState extends State<weatherscreen> {
 
-  Future<WeatherModal> wth=  getweather(City_name);
+  WeatherModal? wth=weathemodel1;
 
 
 
   @override
   Widget build(BuildContext context) {
+
     return  Scaffold(
 backgroundColor: Colors.orangeAccent.shade100,
          appBar: AppBar(
@@ -38,7 +40,7 @@ backgroundColor: Colors.orangeAccent.shade100,
             SizedBox(height: 150,),
 
             Text(City_name,style: TextStyle(color: Colors.black,fontSize: 28,fontWeight: FontWeight.bold,),),
-            Text(" Update : 12:15 pm",style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.normal,),),
+            Text(wth!.date,style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.normal,),),
             SizedBox(
               height: 50,
             ),
@@ -46,15 +48,16 @@ backgroundColor: Colors.orangeAccent.shade100,
 
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+
                   Icon(Icons.sunny,size: 70,),
                   SizedBox(width: 50,),
-                  Text("30",style: TextStyle(color: Colors.black,fontSize: 28,fontWeight: FontWeight.bold,),),
+                  Text('${wth!.tem}',style: TextStyle(color: Colors.black,fontSize: 28,fontWeight: FontWeight.bold,),),
                   SizedBox(width: 50,),
                   Column(
 
                     children: [
-                      Text("Max : 35",style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.normal,),),
-                      Text("Min : 20",style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.normal,),),
+                      Text("Max Tem : ${wth?.MAXtem}",style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.normal,),),
+                      Text("Min Tem : ${wth?.MINtem}",style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.normal,),),
 
                     ],
                   ),
@@ -65,7 +68,7 @@ backgroundColor: Colors.orangeAccent.shade100,
 
             ),
             SizedBox(height: 50,),
-            Text(" Sunny",style: TextStyle(color: Colors.black,fontSize: 28,fontWeight: FontWeight.bold,),),
+            Text(wth!.state,style: TextStyle(color: Colors.black,fontSize: 28,fontWeight: FontWeight.bold,),),
       ]),
 
     );

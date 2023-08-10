@@ -47,11 +47,11 @@ class _SearchState extends State<Search> {
           weathemodel1=weatherModal;
           print(weathemodel1);
 
-        //Navigator.push(context, MaterialPageRoute(
-           // builder: (context) => weatherscreen(),
+        Navigator.push(context, MaterialPageRoute(
+            builder: (context) => weatherscreen()
 
 
-      //  ));
+    ));
 
         },
 
