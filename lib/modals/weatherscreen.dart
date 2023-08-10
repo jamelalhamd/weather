@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather/search.dart';
 
 class weatherscreen extends StatelessWidget {
   const weatherscreen({super.key});
@@ -11,7 +12,9 @@ backgroundColor: Colors.orangeAccent.shade100,
            elevation: 50,
            backgroundColor: Colors.orange.shade500,
              centerTitle: true,
-             actions:  [IconButton(onPressed: (){}, icon:Icon (Icons.search,size: 30),)],
+             actions:  [IconButton(onPressed: (){
+               Navigator.push(context, MaterialPageRoute(builder: (context) =>Search( ),));
+             }, icon:Icon (Icons.search,size: 30),)],
              title: Text(" Weather",style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),)),
 
       body: const Column(
