@@ -1,8 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:weather/constant.dart';
+import 'package:weather/modals/weathermodals.dart';
 import 'package:weather/search.dart';
+import 'package:weather/service.dart';
 
-class weatherscreen extends StatelessWidget {
+class weatherscreen extends StatefulWidget {
   const weatherscreen({super.key});
+
+  @override
+  State<weatherscreen> createState() => _weatherscreenState();
+}
+
+class _weatherscreenState extends State<weatherscreen> {
+
+  Future<WeatherModal> wth=  getweather(City_name);
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -17,14 +30,14 @@ backgroundColor: Colors.orangeAccent.shade100,
              }, icon:Icon (Icons.search,size: 30),)],
              title: Text(" Weather",style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),)),
 
-      body: const Column(
+      body:  Column(
  crossAxisAlignment: CrossAxisAlignment.center,
 
           children: [
 
             SizedBox(height: 150,),
 
-            Text(" Cairo",style: TextStyle(color: Colors.black,fontSize: 28,fontWeight: FontWeight.bold,),),
+            Text(City_name,style: TextStyle(color: Colors.black,fontSize: 28,fontWeight: FontWeight.bold,),),
             Text(" Update : 12:15 pm",style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.normal,),),
             SizedBox(
               height: 50,

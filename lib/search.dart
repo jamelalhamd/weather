@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:weather/constant.dart';
+import 'package:weather/modals/weathermodals.dart';
 import 'package:weather/modals/weatherscreen.dart';
 
 import 'package:weather/mywidget/mywidget/mytextfiled_normal.dart';
+import 'package:weather/service.dart';
 
 class  Search extends StatefulWidget {
   const  Search({super.key});
@@ -39,15 +41,17 @@ class _SearchState extends State<Search> {
 
          },
 
-        onPressedicon: () {
+        onPressedicon: () async {
+
+          WeatherModal weatherModal= await getweather(City_name);
+          weathemodel1=weatherModal;
+          print(weathemodel1);
+
+        //Navigator.push(context, MaterialPageRoute(
+           // builder: (context) => weatherscreen(),
 
 
-
-        Navigator.push(context, MaterialPageRoute(
-            builder: (context) => weatherscreen(),
-
-
-        ));
+      //  ));
 
         },
 
